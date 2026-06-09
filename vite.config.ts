@@ -2,18 +2,16 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
-import { viteSingleFile } from "vite-plugin-singlefile";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
 
   return {
-    base: '/HEART/', // thêm dòng này
+    base: '/HEART/',
 
     plugins: [
       react(),
       tailwindcss(),
-      viteSingleFile()
     ],
 
     define: {
@@ -27,8 +25,7 @@ export default defineConfig(({ mode }) => {
     },
 
     build: {
-      cssCodeSplit: false,
-      assetsInlineLimit: 100000000,
+      outDir: 'dist',
     },
 
     server: {
